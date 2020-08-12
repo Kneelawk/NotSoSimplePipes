@@ -3,10 +3,10 @@ package com.kneelawk.notsosimplepipes.util
 import java.lang.IllegalArgumentException
 import kotlin.reflect.KClass
 
-class ReflectionMethod<T, F>(target: Class<T>, methodReturn: Class<F>, methodName: String, methodArgs: Array<out Class<*>>) {
+class ReflectionMethod<R>(target: Class<*>, methodReturn: Class<R>, methodName: String, methodArgs: Array<out Class<*>>) {
     companion object {
-        inline fun <reified T, reified F> new(fieldName: String, vararg methodArgs: KClass<*>): ReflectionMethod<T, F> {
-            return ReflectionMethod(T::class.java, F::class.java, fieldName, methodArgs.map { it.java }.toTypedArray())
+        inline fun <reified T, reified R> new(fieldName: String, vararg methodArgs: KClass<*>): ReflectionMethod<R> {
+            return ReflectionMethod(T::class.java, R::class.java, fieldName, methodArgs.map { it.java }.toTypedArray())
         }
     }
 
@@ -21,7 +21,7 @@ class ReflectionMethod<T, F>(target: Class<T>, methodReturn: Class<F>, methodNam
     }
 
     @Suppress("unchecked_cast")
-    operator fun invoke(obj: T?, vararg args: Any): F {
-        return method(obj, *args) as F
+    operator fun invoke(obj: Any?, vararg args: Any): R {
+        return method(obj, *args) as R
     }
 }

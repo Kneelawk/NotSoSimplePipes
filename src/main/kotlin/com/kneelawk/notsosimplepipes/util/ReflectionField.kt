@@ -2,9 +2,9 @@ package com.kneelawk.notsosimplepipes.util
 
 import kotlin.reflect.KProperty
 
-class ReflectionField<T, F>(target: Class<T>, fieldClass: Class<F>, fieldName: String) {
+class ReflectionField<F>(target: Class<*>, fieldClass: Class<F>, fieldName: String) {
     companion object {
-        inline fun <reified T, reified F> new(fieldName: String): ReflectionField<T, F> {
+        inline fun <reified T, reified F> new(fieldName: String): ReflectionField<F> {
             return ReflectionField(T::class.java, F::class.java, fieldName)
         }
     }
@@ -20,12 +20,12 @@ class ReflectionField<T, F>(target: Class<T>, fieldClass: Class<F>, fieldName: S
     }
 
     @Suppress("unchecked_cast")
-    operator fun get(obj: T?): F {
+    operator fun get(obj: Any?): F {
         return field[obj] as F
     }
 
     @Suppress("unchecked_cast")
-    operator fun getValue(obj: T, property: KProperty<*>): F {
+    operator fun getValue(obj: Any, property: KProperty<*>): F {
         return field[obj] as F
     }
 }

@@ -2,5 +2,6 @@
   "itemGroup.notsosimplepipes.main": "Not So Simple Pipes",
   "item.notsosimplepipes.pseudo_void": "Pseudo Void",
   "item.notsosimplepipes.pseudo_void_container": "Pseudo Void Container",
-  "block.notsosimplepipes.pipe_lava_item": "Lava Item Pipe"
+  "block.notsosimplepipes.pipe_lava_item": "Lava Item Pipe",
+  "block.notsosimplepipes.pipe_void_fluid": "Void Fluid Pipe"
 }

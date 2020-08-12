@@ -12,6 +12,8 @@ object NSSPItems {
     val ITEM_GROUP_NOT_SO_SIMPLE_PIPES: ItemGroup
 
     val ITEM_PIPE_LAVA_ITEM: BlockItem
+    val ITEM_PIPE_VOID_FLUID: BlockItem
+
     val ITEM_PSEUDO_VOID: Item
     val ITEM_PSEUDO_VOID_CONTAINER: Item
 
@@ -22,6 +24,7 @@ object NSSPItems {
         val itemSettings = Item.Settings().group(ITEM_GROUP_NOT_SO_SIMPLE_PIPES)
 
         ITEM_PIPE_LAVA_ITEM = BlockItem(NSSPBlocks.BLOCK_PIPE_LAVA_ITEM, itemSettings)
+        ITEM_PIPE_VOID_FLUID = BlockItem(NSSPBlocks.BLOCK_PIPE_VOID_FLUID, itemSettings)
 
         ITEM_PSEUDO_VOID = Item(itemSettings)
         ITEM_PSEUDO_VOID_CONTAINER = ItemPseudoVoidContainer(itemSettings)
@@ -29,6 +32,8 @@ object NSSPItems {
 
     fun register() {
         register(ITEM_PIPE_LAVA_ITEM, "pipe_lava_item")
+        register(ITEM_PIPE_VOID_FLUID, "pipe_void_fluid")
+
         register(ITEM_PSEUDO_VOID, "pseudo_void")
         register(ITEM_PSEUDO_VOID_CONTAINER, "pseudo_void_container")
     }
