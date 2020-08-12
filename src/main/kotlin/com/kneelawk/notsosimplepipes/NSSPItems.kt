@@ -1,24 +1,43 @@
 package com.kneelawk.notsosimplepipes
 
+import com.kneelawk.notsosimplepipes.item.ItemPseudoVoidContainer
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.util.registry.Registry
 
 object NSSPItems {
+    val ITEM_GROUP_NOT_SO_SIMPLE_PIPES: ItemGroup
+
     val ITEM_PIPE_LAVA_ITEM: BlockItem
+    val ITEM_PSEUDO_VOID: Item
+    val ITEM_PSEUDO_VOID_CONTAINER: Item
 
     init {
-        val pipeSettings = Item.Settings().group(ItemGroup.REDSTONE)
+        ITEM_GROUP_NOT_SO_SIMPLE_PIPES =
+            FabricItemGroupBuilder.build(NSSPConstants.identifier("main"), NSSPItems::mainItemGroupItem)
 
-        ITEM_PIPE_LAVA_ITEM = BlockItem(NSSPBlocks.BLOCK_PIPE_LAVA_ITEM, pipeSettings)
+        val itemSettings = Item.Settings().group(ITEM_GROUP_NOT_SO_SIMPLE_PIPES)
+
+        ITEM_PIPE_LAVA_ITEM = BlockItem(NSSPBlocks.BLOCK_PIPE_LAVA_ITEM, itemSettings)
+
+        ITEM_PSEUDO_VOID = Item(itemSettings)
+        ITEM_PSEUDO_VOID_CONTAINER = ItemPseudoVoidContainer(itemSettings)
     }
 
     fun register() {
         register(ITEM_PIPE_LAVA_ITEM, "pipe_lava_item")
+        register(ITEM_PSEUDO_VOID, "pseudo_void")
+        register(ITEM_PSEUDO_VOID_CONTAINER, "pseudo_void_container")
     }
 
-    fun register(item: Item, name: String) {
+    private fun register(item: Item, name: String) {
         Registry.register(Registry.ITEM, NSSPConstants.identifier(name), item)
+    }
+
+    private fun mainItemGroupItem(): ItemStack {
+        return ItemStack(ITEM_PIPE_LAVA_ITEM)
     }
 }

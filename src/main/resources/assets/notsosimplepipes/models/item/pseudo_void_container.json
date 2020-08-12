@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "main": "notsosimplepipes:item/pseudo_void_container"
+  },
+  "elements": [
+    {
+      "from": [ 4, 4, 4 ],
+      "to": [ 5, 12, 12 ],
+      "faces": {
+        "west": { "texture": "#main" },
+        "east": { "texture": "#main" }
+      }
+    },
+    {
+      "from": [ 4, 4, 4 ],
+      "to": [ 12, 5, 12 ],
+      "faces": {
+        "down": { "texture": "#main" },
+        "up": { "texture": "#main" }
+      }
+    },
+    {
+      "from": [ 4, 4, 4 ],
+      "to": [ 12, 12, 5 ],
+      "faces": {
+        "north": { "texture": "#main" },
+        "south": { "texture": "#main" }
+      }
+    },
+    {
+      "from": [ 11, 4, 4 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "west": { "texture": "#main" },
+        "east": { "texture": "#main" }
+      }
+    },
+    {
+      "from": [ 4, 11, 4 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "down": { "texture": "#main" },
+        "up": { "texture": "#main" }
+      }
+    },
+    {
+      "from": [ 4, 4, 11 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "north": { "texture": "#main" },
+        "south": { "texture": "#main" }
+      }
+    }
+  ]
+}

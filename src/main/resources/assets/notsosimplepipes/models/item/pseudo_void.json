@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "main": "notsosimplepipes:item/pseudo_void"
+  },
+  "elements": [
+    {
+      "from": [ 4, 4, 4 ],
+      "to": [ 12, 12, 12 ],
+      "faces": {
+        "down": { "texture": "#main" },
+        "up": { "texture": "#main" },
+        "north": { "texture": "#main" },
+        "south": { "texture": "#main" },
+        "west": { "texture": "#main" },
+        "east": { "texture": "#main" }
+      }
+    }
+  ]
+}
