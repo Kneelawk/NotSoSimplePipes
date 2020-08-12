@@ -8,25 +8,25 @@ import net.minecraft.world.BlockView
 /**
  * Block for Lava Item Pipe.
  */
-class BlockPipeItemLava(settings: Settings) : BlockPipe(settings), BlockPipeItem {
+class BlockPipeLavaItem(settings: Settings) : BlockPipe(settings), BlockPipeItem {
     override fun createBlockEntity(var1: BlockView?): TilePipe {
-        return TilePipeItemLava()
+        return TilePipeLavaItem()
     }
 }
 
 /**
  * BlockEntity for Lava Item Pipe.
  */
-class TilePipeItemLava : TilePipe(
+class TilePipeLavaItem : TilePipe(
     NSSPBlocks.TILE_TYPE_PIPE_LAVA_ITEM,
     NSSPBlocks.BLOCK_PIPE_LAVA_ITEM,
-    ::PipeFlowItemLava
+    ::PipeFlowLavaItem
 )
 
 /**
  * PipeFlow for Lava Item Pipe.
  */
-class PipeFlowItemLava(pipe: TilePipe) : PipeFlowItem(pipe), PipeFlowItemCallbacks {
+class PipeFlowLavaItem(pipe: TilePipe) : PipeFlowItem(pipe), PipeFlowItemCallbacks {
     override fun onItemEnterCenter(item: TravellingItem): Boolean {
         return false
     }
