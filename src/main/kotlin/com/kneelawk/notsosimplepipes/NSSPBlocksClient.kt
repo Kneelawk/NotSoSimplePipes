@@ -27,6 +27,36 @@ object NSSPBlocksClient {
             Identifier("simple_pipes", "pipe_stone_fluid"),
             PipeCoredBaseModelGen(NSSPConstants.identifier("block/pseudo_void"))
         )
+        registerItemCenter(
+            NSSPBlocks.BLOCK_PIPE_ITEM_SOURCE,
+            NSSPBlocks.TILE_TYPE_PIPE_ITEM_SOURCE,
+            NSSPConstants.identifier("block/pipe_item_source")
+        )
+        registerFluidCenter(
+            NSSPBlocks.BLOCK_PIPE_FLUID_SOURCE,
+            NSSPBlocks.TILE_TYPE_PIPE_FLUID_SOURCE,
+            NSSPConstants.identifier("block/pipe_fluid_source")
+        )
+    }
+
+    private fun <T : TilePipe> registerItemCenter(
+        block: BlockPipe,
+        tileType: BlockEntityType<T>,
+        centerSprite: Identifier
+    ) {
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout())
+        BlockEntityRendererRegistry.INSTANCE.register(tileType) { PipeItemTileRenderer(it) }
+        PipeBaseModels.registerCenterSprite(block, centerSprite)
+    }
+
+    private fun <T : TilePipe> registerFluidCenter(
+        block: BlockPipe,
+        tileType: BlockEntityType<T>,
+        centerSprite: Identifier
+    ) {
+        BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout())
+        BlockEntityRendererRegistry.INSTANCE.register(tileType) { PipeFluidTileRenderer(it) }
+        PipeBaseModels.registerCenterSprite(block, centerSprite)
     }
 
     private fun <T : TilePipe> registerItemCenterGenerated(

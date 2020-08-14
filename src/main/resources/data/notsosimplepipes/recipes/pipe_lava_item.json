@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_item"
+    },
+    {
+      "item": "minecraft:lava_bucket"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "notsosimplepipes:pipe_lava_item"
+  }
+}

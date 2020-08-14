@@ -7,4 +7,6 @@ package com.kneelawk.notsosimplepipes
 fun init() {
     NSSPBlocks.register()
     NSSPItems.register()
+    NSSPNetwork.register()
+    NSSPHandlers.register()
 }

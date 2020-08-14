@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "simple_pipes:pipe_stone_fluid"
+    },
+    {
+      "item": "notsosimplepipes:pseudo_void"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "notsosimplepipes:pipe_void_fluid"
+  }
+}

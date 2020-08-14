@@ -18,6 +18,7 @@ minecraft {
 repositories {
     maven { url = "http://maven.fabricmc.net/" }
     maven { name = "BuildCraft"; url = "https://mod-buildcraft.com/maven" }
+    maven { name = "Spinnery"; url = "https://dl.bintray.com/spinnery/Spinnery" }
 }
 
 dependencies {
@@ -32,6 +33,10 @@ dependencies {
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
     modImplementation "alexiil.mc.mod:simplepipes-all:${project.simplepipes_version}"
+
+    // Spinnery
+    modCompile "com.github.vini2003:spinnery:${project.spinnery_version}"
+    include "com.github.vini2003:spinnery:${project.spinnery_version}"
 
     modRuntime "io.github.prospector:modmenu:1.12.1+build.15"
     modRuntime "me.shedaniel:RoughlyEnoughItems:4.8.1"

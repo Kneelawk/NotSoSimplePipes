@@ -6,4 +6,6 @@ package com.kneelawk.notsosimplepipes
 @Suppress("unused")
 fun initClient() {
     NSSPBlocksClient.register()
+    NSSPNetworkClient.register()
+    NSSPScreens.register()
 }

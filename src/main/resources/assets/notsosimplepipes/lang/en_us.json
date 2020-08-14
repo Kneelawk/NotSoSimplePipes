@@ -3,5 +3,10 @@
   "item.notsosimplepipes.pseudo_void": "Pseudo Void",
   "item.notsosimplepipes.pseudo_void_container": "Pseudo Void Container",
   "block.notsosimplepipes.pipe_lava_item": "Lava Item Pipe",
-  "block.notsosimplepipes.pipe_void_fluid": "Void Fluid Pipe"
+  "block.notsosimplepipes.pipe_void_fluid": "Void Fluid Pipe",
+  "block.notsosimplepipes.pipe_item_source": "Creative Item Source Pipe",
+  "block.notsosimplepipes.pipe_fluid_source": "Creative Fluid Source Pipe",
+  "gui.notsosimplepipes.speed": "Speed",
+  "gui.notsosimplepipes.interval": "Interval",
+  "gui.notsosimplepipes.color": "Color"
 }
