@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.InventoryChangedListener
 import net.minecraft.screen.ScreenHandlerType
+import net.minecraft.util.DyeColor
 import net.minecraft.util.math.BlockPos
 import spinnery.common.handler.BaseScreenHandler
 import spinnery.widget.WSlot
@@ -52,6 +53,10 @@ class HandlerPipeItemSource(
         screen?.setInterval(interval)
     }
 
+    fun s2cUpdateColor(color: DyeColor?) {
+        screen?.setColor(color)
+    }
+
     fun c2sUpdateSpeed(speed: Double) {
         val newSpeed = speed.coerceIn(TilePipeItemSource.MIN_SPEED, TilePipeItemSource.MAX_SPEED)
         // the handler is responsible for updating the tile of the client who requested the change
@@ -65,7 +70,13 @@ class HandlerPipeItemSource(
         NSSPNetworkClient.sendUpdateItemSourceInterval(tile.pos, newInterval)
     }
 
+    fun c2sUpdateColor(color: DyeColor?) {
+        tile.color = color
+        NSSPNetworkClient.sendUpdateItemSourceColor(tile.pos, color)
+    }
+
     override fun close(player: PlayerEntity?) {
+        screen = null
         tile.sourceInv.removeListener(listener)
         super.close(player)
     }

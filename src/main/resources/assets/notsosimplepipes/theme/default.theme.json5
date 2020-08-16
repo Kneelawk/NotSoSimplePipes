@@ -1,0 +1,23 @@
+{
+  vars: {
+    bevel_dark: 0xff373737,
+    bevel_light: 0xffffffff,
+    bg_panel: 0xffc6c6c6
+  },
+  theme: {
+    "notsosimplepipes:icon_button": {
+      top_left: {
+        on: "$bevel_dark",
+        off: "$bevel_light"
+      },
+      background: {
+        on: "$bg_panel",
+        off: "$bg_panel"
+      },
+      bottom_right: {
+        on: "$bevel_light",
+        off: "$bevel_dark"
+      }
+    }
+  }
+}

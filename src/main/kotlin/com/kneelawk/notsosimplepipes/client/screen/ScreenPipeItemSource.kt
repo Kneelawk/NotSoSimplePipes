@@ -1,10 +1,13 @@
 package com.kneelawk.notsosimplepipes.client.screen
 
+import com.kneelawk.notsosimplepipes.NSSPConstants
+import com.kneelawk.notsosimplepipes.client.widget.DyeColorButtonType
+import com.kneelawk.notsosimplepipes.client.widget.KIconButton
 import com.kneelawk.notsosimplepipes.handler.HandlerPipeItemSource
 import com.kneelawk.notsosimplepipes.pipes.TilePipeItemSource
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
+import net.minecraft.util.DyeColor
 import spinnery.client.render.TextRenderer
 import spinnery.client.screen.BaseHandledScreen
 import spinnery.widget.*
@@ -16,6 +19,7 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
     BaseHandledScreen<HandlerPipeItemSource>(handler, inventory, name) {
     private val speedField: WTextField
     private val intervalField: WTextField
+    private val colorButton: KIconButton<DyeColorButtonType>
 
     init {
         handler.screen = this
@@ -39,9 +43,9 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
             3
         )
 
-        val speedText = TranslatableText("gui.notsosimplepipes.speed")
-        val intervalText = TranslatableText("gui.notsosimplepipes.interval")
-        val colorText = TranslatableText("gui.notsosimplepipes.color")
+        val speedText = NSSPConstants.guiLang("speed")
+        val intervalText = NSSPConstants.guiLang("interval")
+        val colorText = NSSPConstants.guiLang("color")
 
         `interface`.createChild(
             ::WStaticText,
@@ -66,12 +70,21 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
             Position.of(mainPanel, 8f + 6f * 18f, 14f + 8f + 18f),
             Size.of(3f * 18f, 18f)
         ).setFilter<WTextField>(Filter.INTEGER_FILTER).setText(handler.tile.interval.toString())
+        colorButton = `interface`.createChild(
+            { KIconButton(DyeColorButtonType.values().asList(), true) },
+            Position.of(mainPanel, 8f + 6f * 18f + 1f, 14f + 8f + 2f * 18f + 1f),
+            Size.of(16f, 16f)
+        ).setTheme(NSSPConstants.identifier("default"))
+        colorButton.colorIndex = handler.tile.color?.id ?: 16
 
         speedField.setOnKeyReleased<WTextField> { _, _, _, _ ->
             handler.c2sUpdateSpeed(speedField.text.toDoubleOrNull() ?: TilePipeItemSource.MIN_SPEED)
         }
         intervalField.setOnKeyReleased<WTextField> { _, _, _, _ ->
             handler.c2sUpdateInterval(intervalField.text.toIntOrNull() ?: TilePipeItemSource.MIN_INTERVAL)
+        }
+        colorButton.setOnMouseClicked<KIconButton<DyeColorButtonType>> { _, _, _, _ ->
+            handler.c2sUpdateColor(colorButton.color.dyeColor)
         }
     }
 
@@ -81,5 +94,9 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
 
     fun setInterval(interval: Int) {
         intervalField.setText<WTextField>(interval.toString())
+    }
+
+    fun setColor(color: DyeColor?) {
+        colorButton.colorIndex = color?.id ?: 16
     }
 }

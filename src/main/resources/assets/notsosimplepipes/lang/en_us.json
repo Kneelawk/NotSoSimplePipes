@@ -8,5 +8,22 @@
   "block.notsosimplepipes.pipe_fluid_source": "Creative Fluid Source Pipe",
   "gui.notsosimplepipes.speed": "Speed",
   "gui.notsosimplepipes.interval": "Interval",
-  "gui.notsosimplepipes.color": "Color"
+  "gui.notsosimplepipes.color": "Color",
+  "gui.notsosimplepipes.color.white": "White",
+  "gui.notsosimplepipes.color.orange": "Orange",
+  "gui.notsosimplepipes.color.magenta": "Magenta",
+  "gui.notsosimplepipes.color.light_blue": "Light Blue",
+  "gui.notsosimplepipes.color.yellow": "Yellow",
+  "gui.notsosimplepipes.color.lime": "Lime",
+  "gui.notsosimplepipes.color.pink": "Pink",
+  "gui.notsosimplepipes.color.gray": "Gray",
+  "gui.notsosimplepipes.color.light_gray": "Light Gray",
+  "gui.notsosimplepipes.color.cyan": "Cyan",
+  "gui.notsosimplepipes.color.purple": "Purple",
+  "gui.notsosimplepipes.color.blue": "Blue",
+  "gui.notsosimplepipes.color.brown": "Brown",
+  "gui.notsosimplepipes.color.green": "Green",
+  "gui.notsosimplepipes.color.red": "Red",
+  "gui.notsosimplepipes.color.black": "Black",
+  "gui.notsosimplepipes.color.none": "No Color"
 }
