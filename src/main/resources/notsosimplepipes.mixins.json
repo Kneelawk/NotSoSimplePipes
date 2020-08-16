@@ -3,8 +3,7 @@
   "package": "com.kneelawk.notsosimplepipes.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "PipeFlowItemMixin",
-    "ScreenHandlerAccessor"
+    "PipeFlowItemMixin"
   ],
   "client": [
     "PipeBaseModelGenStandardMixin"

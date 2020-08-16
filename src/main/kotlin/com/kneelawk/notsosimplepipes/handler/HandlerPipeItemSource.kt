@@ -3,11 +3,11 @@ package com.kneelawk.notsosimplepipes.handler
 import com.kneelawk.notsosimplepipes.NSSPHandlers
 import com.kneelawk.notsosimplepipes.NSSPNetworkClient
 import com.kneelawk.notsosimplepipes.client.screen.ScreenPipeItemSource
-import com.kneelawk.notsosimplepipes.mixinapi.TypeableScreenHandler
 import com.kneelawk.notsosimplepipes.pipes.TilePipeItemSource
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.InventoryChangedListener
+import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.util.math.BlockPos
 import spinnery.common.handler.BaseScreenHandler
 import spinnery.widget.WSlot
@@ -28,9 +28,6 @@ class HandlerPipeItemSource(
     var screen: ScreenPipeItemSource? = null
 
     init {
-        @Suppress("cast_never_succeeds")
-        (this as TypeableScreenHandler).notsosimplepipes_setType(NSSPHandlers.HANDLER_PIPE_ITEM_SOURCE)
-
         inventories[PIPE_INVENTORY] = tile.sourceInv
 
         WSlot.addHeadlessArray(`interface`, 0, PIPE_INVENTORY, 3, 3)
@@ -41,6 +38,10 @@ class HandlerPipeItemSource(
         if (!world.isClient) {
             tile.sync()
         }
+    }
+
+    override fun getType(): ScreenHandlerType<*> {
+        return NSSPHandlers.HANDLER_PIPE_ITEM_SOURCE
     }
 
     fun s2cUpdateSpeed(speed: Double) {
