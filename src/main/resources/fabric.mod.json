@@ -19,7 +19,7 @@
       "com.kneelawk.notsosimplepipes.NotSoSimplePipesModKt::init"
     ],
     "client": [
-      "com.kneelawk.notsosimplepipes.NotSoSimplePipesClientKt::initClient"
+      "com.kneelawk.notsosimplepipes.client.NotSoSimplePipesClientKt::initClient"
     ]
   },
   "mixins": [

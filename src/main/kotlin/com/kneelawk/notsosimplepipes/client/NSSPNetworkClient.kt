@@ -1,4 +1,4 @@
-package com.kneelawk.notsosimplepipes
+package com.kneelawk.notsosimplepipes.client
 
 import com.kneelawk.notsosimplepipes.NSSPNetwork.C2S_UPDATE_ITEM_SOURCE_COLOR
 import com.kneelawk.notsosimplepipes.NSSPNetwork.C2S_UPDATE_ITEM_SOURCE_INTERVAL

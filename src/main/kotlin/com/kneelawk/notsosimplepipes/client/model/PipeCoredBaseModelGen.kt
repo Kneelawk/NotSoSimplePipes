@@ -1,4 +1,4 @@
-package com.kneelawk.notsosimplepipes.client
+package com.kneelawk.notsosimplepipes.client.model
 
 import alexiil.mc.mod.pipes.blocks.TilePipe
 import alexiil.mc.mod.pipes.client.model.ModelUtil
@@ -47,7 +47,12 @@ class PipeCoredBaseModelGen(private val coreSprite: Identifier) : PipeBaseModelG
         for (face in Direction.values()) {
             val connected = key.isConnected(face)
             val sprite = if (connected) {
-                getSprite(null, sprites, key, face)
+                getSprite(
+                    null,
+                    sprites,
+                    key,
+                    face
+                )
             } else {
                 PipeBaseModelGenStandard.getCenterSprite(sprites, key.block)
             }

@@ -1,10 +1,12 @@
-package com.kneelawk.notsosimplepipes
+package com.kneelawk.notsosimplepipes.client
 
 import alexiil.mc.mod.pipes.blocks.BlockPipe
 import alexiil.mc.mod.pipes.blocks.TilePipe
 import alexiil.mc.mod.pipes.client.render.PipeFluidTileRenderer
 import alexiil.mc.mod.pipes.client.render.PipeItemTileRenderer
-import com.kneelawk.notsosimplepipes.client.PipeCoredBaseModelGen
+import com.kneelawk.notsosimplepipes.NSSPBlocks
+import com.kneelawk.notsosimplepipes.NSSPConstants
+import com.kneelawk.notsosimplepipes.client.model.PipeCoredBaseModelGen
 import com.kneelawk.notsosimplepipes.mixinapi.PipeBaseModelGenerator
 import com.kneelawk.notsosimplepipes.mixinapi.PipeBaseModels
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
@@ -25,7 +27,11 @@ object NSSPBlocksClient {
             NSSPBlocks.BLOCK_PIPE_VOID_FLUID,
             NSSPBlocks.TILE_TYPE_PIPE_VOID_FLUID,
             Identifier("simple_pipes", "pipe_stone_fluid"),
-            PipeCoredBaseModelGen(NSSPConstants.identifier("block/pseudo_void"))
+            PipeCoredBaseModelGen(
+                NSSPConstants.identifier(
+                    "block/pseudo_void"
+                )
+            )
         )
         registerItemCenter(
             NSSPBlocks.BLOCK_PIPE_ITEM_SOURCE,

@@ -6,7 +6,8 @@
     "PipeFlowItemMixin"
   ],
   "client": [
-    "PipeBaseModelGenStandardMixin"
+    "PipeBaseModelGenStandardMixin",
+    "PipeItemTileRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

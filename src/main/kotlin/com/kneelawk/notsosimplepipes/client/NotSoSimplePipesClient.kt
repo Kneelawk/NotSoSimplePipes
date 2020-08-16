@@ -1,4 +1,4 @@
-package com.kneelawk.notsosimplepipes
+package com.kneelawk.notsosimplepipes.client
 
 import com.kneelawk.notsosimplepipes.client.screen.NSSPScreens
 import com.kneelawk.notsosimplepipes.client.widget.NSSPWidgets
@@ -8,6 +8,7 @@ import com.kneelawk.notsosimplepipes.client.widget.NSSPWidgets
  */
 @Suppress("unused")
 fun initClient() {
+    NSSPSprites.register()
     NSSPBlocksClient.register()
     NSSPNetworkClient.register()
     NSSPWidgets.register()
