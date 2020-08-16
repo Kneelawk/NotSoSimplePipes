@@ -1,6 +1,5 @@
 package com.kneelawk.notsosimplepipes.handler
 
-import com.kneelawk.notsosimplepipes.NSSPHandlers
 import com.kneelawk.notsosimplepipes.NSSPNetworkClient
 import com.kneelawk.notsosimplepipes.client.screen.ScreenPipeItemSource
 import com.kneelawk.notsosimplepipes.pipes.TilePipeItemSource

@@ -1,5 +1,7 @@
 package com.kneelawk.notsosimplepipes
 
+import com.kneelawk.notsosimplepipes.handler.NSSPHandlers
+
 /**
  * Mod entry point.
  */

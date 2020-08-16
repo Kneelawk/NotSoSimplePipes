@@ -1,5 +1,6 @@
 package com.kneelawk.notsosimplepipes
 
+import com.kneelawk.notsosimplepipes.client.screen.NSSPScreens
 import com.kneelawk.notsosimplepipes.client.widget.NSSPWidgets
 
 /**
