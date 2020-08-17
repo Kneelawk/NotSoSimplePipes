@@ -14,6 +14,7 @@ import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.SimpleInventory
+import net.minecraft.item.BlockItem
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.PacketByteBuf
@@ -48,6 +49,18 @@ class BlockPipeItemSource(settings: Settings) : BlockPipe(settings) {
         hand: Hand,
         hit: BlockHitResult
     ): ActionResult {
+        val itemStack = player.activeItem
+        if (itemStack != null) {
+            val item = itemStack.item
+            if (item is BlockItem && item.block is BlockPipe) {
+                return ActionResult.PASS
+            }
+        }
+
+        if (!player.isCreative) {
+            return ActionResult.PASS
+        }
+
         if (!world.isClient) {
             player.openHandledScreen(world.getBlockEntity(pos) as TilePipeItemSource)
         }
