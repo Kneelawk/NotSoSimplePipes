@@ -15,8 +15,8 @@ import spinnery.widget.api.Filter
 import spinnery.widget.api.Position
 import spinnery.widget.api.Size
 
-class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInventory, name: Text) :
-    BaseHandledScreen<HandlerPipeItemSource>(handler, inventory, name) {
+class ScreenPipeItemSource(handler: HandlerPipeItemSource, playerInv: PlayerInventory, name: Text) :
+    BaseHandledScreen<HandlerPipeItemSource>(handler, playerInv, name) {
     private val speedField: WTextField
     private val intervalField: WTextField
     private val colorButton: KIconButton<DyeColorButtonType>
@@ -25,16 +25,15 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
         handler.screen = this
 
         val mainPanel =
-            `interface`.createChild(::WPanel, Position.of(0f, 0f, 0f), Size.of(9f * 18f + 16f, 8f * 18f + 2f + 16f))
+            `interface`.createChild(::WPanel, Position.of(0f, 0f, 0f), Size.of(9f * 18f + 16f, 16f + 14f + 7f * 18f + 8f))
                 .setParent<WPanel>(`interface`)
         mainPanel.setLabel<WPanel>(name)
         mainPanel.setOnAlign(WAbstractWidget::center)
         mainPanel.center()
         `interface`.add(mainPanel)
 
-        WSlot.addPlayerInventory(Position.of(mainPanel, 8f, 3f * 18f + 18f + 8f), Size.of(18f, 18f), `interface`)
         WSlot.addArray(
-            Position.of(mainPanel, 8f, 14f + 8f),
+            Position.of(mainPanel, 8f, 8f + 14f),
             Size.of(18f, 18f),
             `interface`,
             0,
@@ -42,6 +41,7 @@ class ScreenPipeItemSource(handler: HandlerPipeItemSource, inventory: PlayerInve
             3,
             3
         )
+        WSlot.addPlayerInventory(Position.of(mainPanel, 8f, 8f + 14f + 3f * 18f + 4f), Size.of(18f, 18f), `interface`)
 
         val speedText = NSSPConstants.guiLang("speed")
         val intervalText = NSSPConstants.guiLang("interval")

@@ -48,8 +48,8 @@ class PipeFlowVoidFluid(pipe: TilePipe) : PipeFlowFluid(pipe) {
         if (!world().isClient) {
             // emulate fluid being dumped into a bottomless void
             fluid.split(fluid.amount())
-
-            super.tick()
         }
+
+        super.tick()
     }
 }

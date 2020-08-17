@@ -49,7 +49,7 @@ class BlockPipeItemSource(settings: Settings) : BlockPipe(settings) {
         hand: Hand,
         hit: BlockHitResult
     ): ActionResult {
-        val itemStack = player.activeItem
+        val itemStack = player.getStackInHand(hand)
         if (itemStack != null) {
             val item = itemStack.item
             if (item is BlockItem && item.block is BlockPipe) {
@@ -98,14 +98,7 @@ class TilePipeItemSource :
             }
         }
 
-        newTag.putDouble("speed", speed)
-        newTag.putInt("interval", interval)
-        newTag.putLong("lastTick", lastTick)
-
-        val curColor = color
-        if (curColor != null) {
-            newTag.putByte("color", curColor.id.toByte())
-        }
+        writeCustom(newTag)
 
         return newTag
     }
@@ -121,26 +114,13 @@ class TilePipeItemSource :
             }
         }
 
-        speed = tag.getDouble("speed").coerceIn(MIN_SPEED, MAX_SPEED)
-        interval = tag.getInt("interval").coerceAtLeast(MIN_INTERVAL)
-        lastTick = tag.getLong("lastTick")
-
-        if (tag.contains("color")) {
-            color = DyeColor.byId(tag.getByte("color").toInt())
-        }
+        readCustom(tag)
     }
 
     override fun toClientTag(tag: CompoundTag): CompoundTag {
         val newTag = super.toClientTag(tag)
 
-        newTag.putDouble("speed", speed)
-        newTag.putInt("interval", interval)
-        newTag.putLong("lastTick", lastTick)
-
-        val curColor = color
-        if (curColor != null) {
-            newTag.putByte("color", curColor.id.toByte())
-        }
+        writeCustom(tag)
 
         return newTag
     }
@@ -150,13 +130,28 @@ class TilePipeItemSource :
 
         // ignore flow update packets
         if (!tag.getBoolean("f")) {
-            speed = tag.getDouble("speed").coerceIn(MIN_SPEED, MAX_SPEED)
-            interval = tag.getInt("interval").coerceAtLeast(MIN_INTERVAL)
-            lastTick = tag.getLong("lastTick")
+            readCustom(tag)
+        }
+    }
 
-            if (tag.contains("color")) {
-                color = DyeColor.byId(tag.getByte("color").toInt())
-            }
+    private fun writeCustom(tag: CompoundTag) {
+        tag.putDouble("speed", speed)
+        tag.putInt("interval", interval)
+        tag.putLong("lastTick", lastTick)
+
+        val curColor = color
+        if (curColor != null) {
+            tag.putByte("color", curColor.id.toByte())
+        }
+    }
+
+    private fun readCustom(tag: CompoundTag) {
+        speed = tag.getDouble("speed").coerceIn(MIN_SPEED, MAX_SPEED)
+        interval = tag.getInt("interval").coerceAtLeast(MIN_INTERVAL)
+        lastTick = tag.getLong("lastTick")
+
+        if (tag.contains("color")) {
+            color = DyeColor.byId(tag.getByte("color").toInt())
         }
     }
 

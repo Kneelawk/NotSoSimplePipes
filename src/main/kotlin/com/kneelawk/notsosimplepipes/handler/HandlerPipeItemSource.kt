@@ -12,11 +12,8 @@ import net.minecraft.util.math.BlockPos
 import spinnery.common.handler.BaseScreenHandler
 import spinnery.widget.WSlot
 
-class HandlerPipeItemSource(
-    synchronizationId: Int,
-    playerInventory: PlayerInventory,
-    pos: BlockPos
-) : BaseScreenHandler(synchronizationId, playerInventory) {
+class HandlerPipeItemSource(syncId: Int, playerInv: PlayerInventory, pos: BlockPos) :
+    BaseScreenHandler(syncId, playerInv) {
     companion object {
         const val PIPE_INVENTORY = 1
     }
