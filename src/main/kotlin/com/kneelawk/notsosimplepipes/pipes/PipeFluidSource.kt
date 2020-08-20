@@ -78,7 +78,8 @@ class TilePipeFluidSource :
 
     val sourceInv = object : SimpleInventory(INVENTORY_SIZE) {
         override fun isValid(slot: Int, stack: ItemStack): Boolean {
-            return FluidAttributes.GROUPED_INV_VIEW[stack].storedFluids.size == 1
+            val storedFluids = FluidAttributes.GROUPED_INV_VIEW[stack].storedFluids
+            return storedFluids.size == 1 && !storedFluids.first().isEmpty
         }
     }
 
@@ -151,7 +152,7 @@ class PipeFlowFluidSource(pipe: TilePipe) : PipeFlowFluid(pipe) {
             val view = FluidAttributes.GROUPED_INV_VIEW[tile.sourceInv.getStack(0)]
             view.storedFluids.firstOrNull()?.let { fluidKey ->
                 val amount = SECTION_CAPACITY - fluid.amount
-                if (amount > 0) {
+                if (!fluidKey.isEmpty && amount > 0) {
                     val merged = FluidVolume.merge(fluid, fluidKey.withAmount(amount))
                     merged?.let { fluid = it }
                 }
